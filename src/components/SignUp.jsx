@@ -14,11 +14,11 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-const createdAT = result?.user?.metadata?.creationTime;
+        const createdAT = result?.user?.metadata?.creationTime;
 
         const newUser = { name, email, createdAT };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://coffee-store-server-theta-pink.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -27,9 +27,8 @@ const createdAT = result?.user?.metadata?.creationTime;
         })
           .then((res) => res.json())
           .then((data) => {
-           if (data.insertedId){
-
-           }
+            if (data.insertedId) {
+            }
           });
       })
       .catch((error) => {
